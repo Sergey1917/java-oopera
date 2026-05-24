@@ -3,14 +3,15 @@ import java.util.Objects;
 
 public class Show {
 
-    private String title;
-    private int durationMinutes;
-    private Director director = new Director("Режиссер не назначен","--",Gender.MALE, 0);
-    private ArrayList<Actor> actorsList = new ArrayList<>();
+    protected String title;  //Меняем доступ на protected для работы с полями в классах-наследниках
+    protected int durationMinutes;
+    protected Director director;
+    protected ArrayList<Actor> actorsList = new ArrayList<>();
 
-    public Show(String title, int durationMinutes) {
+    public Show(String title, int durationMinutes, Director director) {
         this.title = title;
         this.durationMinutes = durationMinutes;
+        this.director = director;
     }
 
     public void setDirector(Director director) {
@@ -36,6 +37,11 @@ public class Show {
     }
 
     public void replaceActor(Actor actorToAdd, String surnameToReplace) {
+        if (actorsList.contains(actorToAdd)) {                                         // Если актер, которого мы хотим
+            System.out.println("Актер, которого вы хотите добавить, уже участвует в шоу"); // добавить, уже участвует,
+            return;                                                                       // выводим сообщение и
+        }                                                                                 // выходим из метода
+
         for (int i = 0; i < actorsList.size(); i++) {
             if (Objects.equals(actorsList.get(i).getSurname(), surnameToReplace)) { // Если актер, которого мы хотим
                 actorsList.set(i, actorToAdd);                              // заменить, действительно в шоу, заменяем

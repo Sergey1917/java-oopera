@@ -12,22 +12,26 @@ public class Theatre {
         Actor abdrazakov = new Actor("Ильдар", "Абдразаков", Gender.MALE, 187);
 
 
-        Show besy = new Show("Бесы", 190);
-        besy.setDirector(bogomolov);
+        Show besy = new Show("Бесы", 190, bogomolov); //+Режиссер при создании
+        //besy.setDirector(bogomolov);
         besy.addActor(abdrazakov);
         besy.addActor(zakharova);
 
-        Ballet ozero = new Ballet("Лебединое озеро", 150, "П.И. Чайковский", "Мариус Петипа");
-        ozero.setDirector(gergiev);
+        Ballet ozero = new Ballet("Лебединое озеро", 150, gergiev, "П.И. Чайковский",
+                "Принц Зигфрид влюбляется в Одетту, заколдованную в лебедя.",//+Либретто, режиссер при создании
+                "Мариус Петипа");
+        //ozero.setDirector(gergiev);
         ozero.addActor(tsiskaridze);
         ozero.addActor(zakharova);
-        ozero.setLibrettoText("Принц Зигфрид влюбляется в Одетту, заколдованную в лебедя.");
+        //ozero.setLibrettoText("Принц Зигфрид влюбляется в Одетту, заколдованную в лебедя.");
 
-        Opera carmen = new Opera("Кармен", 200, "Ж. Бизе", 80);
-        carmen.setDirector(gergiev);
+        Opera carmen = new Opera("Кармен", 200, gergiev, "Ж. Бизе",
+                "История трагической любви и ревности солдата Хозе и цыганки Кармен.", //+Либретто, режиссер при создании
+                80);
+        //carmen.setDirector(gergiev);
         carmen.addActor(abdrazakov);
         carmen.addActor(tsiskaridze);
-        carmen.setLibrettoText("История трагической любви и ревности солдата Хозе и цыганки Кармен.");
+        //carmen.setLibrettoText("История трагической любви и ревности солдата Хозе и цыганки Кармен.");
 
         System.out.println("Выводим либретто музыкальных шоу.");
         ozero.printLibretto();

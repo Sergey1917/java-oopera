@@ -1,12 +1,13 @@
 
 public class MusicalShow extends Show {
 
-     private String musicAuthor;
-     private String librettoText = "";
+    protected String musicAuthor;  //Меняем доступ на protected для работы с полями в классах-наследниках
+    protected String librettoText;
 
-    public MusicalShow(String title, int durationMinutes, String musicAuthor) {
-        super(title, durationMinutes);
+    public MusicalShow(String title, int durationMinutes, Director director, String musicAuthor, String librettoText) {
+        super(title, durationMinutes, director);
         this.musicAuthor = musicAuthor;
+        this.librettoText = librettoText;
     }
 
     public void setLibrettoText(String librettoText) {
@@ -15,6 +16,6 @@ public class MusicalShow extends Show {
 
     public void printLibretto() {
         System.out.println(librettoText);
- }
+    }
 
 }
